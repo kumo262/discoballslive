@@ -318,6 +318,175 @@
   }
   .signoff .star { color: var(--gold-3); font-size: 0.9em; }
 
+  /* ============================================ */
+  /* NEW SECTION: Press strip                     */
+  /* ============================================ */
+  .press {
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    opacity: 0;
+    animation: rise 1.4s 0.6s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  .press-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--chrome-3);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .press-label::before, .press-label::after {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-2), transparent);
+  }
+  .press-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(20px, 4vw, 44px);
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .press-item {
+    font-family: "Cinzel", serif;
+    font-weight: 500;
+    font-size: clamp(11px, 1.3vw, 13px);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--chrome-2);
+    text-align: center;
+    line-height: 1.5;
+    transition: color .3s ease;
+    text-decoration: none;
+  }
+  .press-item .press-sub {
+    display: block;
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    color: var(--chrome-4);
+    margin-top: 4px;
+  }
+  a.press-item:hover {
+    color: var(--gold-1);
+  }
+  a.press-item:hover .press-sub {
+    color: var(--chrome-3);
+  }
+
+  /* ============================================ */
+  /* NEW SECTION: Email capture                   */
+  /* DISABLED for now. Uncomment when ready to    */
+  /* re-enable email signup with Beehiiv.         */
+  /* ============================================ */
+  /*
+  .subscribe {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    opacity: 0;
+    animation: rise 1.4s 0.7s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  .subscribe-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--chrome-3);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .subscribe-label::before, .subscribe-label::after {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-2), transparent);
+  }
+  .subscribe-form {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 440px;
+  }
+  .subscribe-form input[type="email"] {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.005));
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    color: var(--chrome-1);
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: border-color .3s ease, background .3s ease;
+    outline: none;
+  }
+  .subscribe-form input[type="email"]::placeholder {
+    color: var(--chrome-4);
+    font-weight: 300;
+  }
+  .subscribe-form input[type="email"]:focus {
+    border-color: rgba(245, 213, 106, 0.55);
+    background: linear-gradient(180deg, rgba(245,213,106,0.04), rgba(255,255,255,0.01));
+  }
+  .subscribe-form button {
+    padding: 12px 22px;
+    background: transparent;
+    border: 1px solid rgba(245, 213, 106, 0.5);
+    border-radius: 2px;
+    color: var(--gold-1);
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background .3s ease, color .3s ease, border-color .3s ease;
+    white-space: nowrap;
+  }
+  .subscribe-form button:hover {
+    background: rgba(245, 213, 106, 0.08);
+    color: var(--chrome-1);
+    border-color: rgba(245, 213, 106, 0.8);
+  }
+  .subscribe-note {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--chrome-4);
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    .subscribe-form {
+      flex-direction: column;
+    }
+    .subscribe-form button {
+      width: 100%;
+    }
+  }
+  */
+
+  /* Adjust existing footer animation delay to come after the new sections */
+  footer {
+    animation-delay: 0.85s;
+  }
+
   @keyframes rise {
     from { opacity: 0; transform: translateY(14px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -328,7 +497,7 @@
       animation: none !important;
       transition: none !important;
     }
-    .logo-wrap, .socials-wrap, footer, .status { opacity: 1; }
+    .logo-wrap, .socials-wrap, footer, .status, .press { opacity: 1; }
   }
 </style>
 </head>
@@ -344,6 +513,10 @@
     <img class="logo" src="logo.png" alt="Disco Balls Live logo" />
     <h1>DISCO BALLS LIVE</h1>
     <p class="tagline">Reporting Live From the Dance Floor</p>
+    <!-- NEW: Who We Are blurb -->
+    <p class="blurb">
+      Kumo and Nico walk into live events in matching disco ball helmets and mirrored jackets, gold and silver, and somehow the crowd always finds them first. Reporting live from the dance floor.
+    </p>
   </section>
 
   <section class="socials-wrap" aria-label="Social channels">
@@ -377,6 +550,29 @@
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
         </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- NEW SECTION: Press strip                     -->
+  <!-- Add new outlets to .press-items as they come -->
+  <!-- ============================================ -->
+  <section class="press" aria-label="Press mentions">
+    <div class="press-label">As Seen In</div>
+    <div class="press-items">
+      <a class="press-item" href="https://napavalleyregister.com/news/gallery-photos-from-the-last-day-of-bottlerock/collection_e2ed9be9-651a-400e-90dd-c584c4ab1eae.html#1" target="_blank" rel="noopener">
+        Napa Valley Register
+        <span class="press-sub">BottleRock 2026 &middot; Photo by Nick Otto</span>
+      </a>
+      <a class="press-item" href="https://www.pressdemocrat.com/2026/05/24/having-the-best-time-festivalgoers-close-out-bottlerock-napa-valley-2026-with-silent-disco-checking-off-bucket-lists/" target="_blank" rel="noopener">
+        Press Democrat
+        <span class="press-sub">BottleRock 2026 &middot; Photo by Chris Riley</span>
+      </a>
+      <!-- Hello Fresh TikTok also exists: https://www.tiktok.com/@hellofresh/video/7643621397859667213 -->
+      <a class="press-item" href="https://www.instagram.com/p/DYveHSOMZu0/" target="_blank" rel="noopener">
+        Hello Fresh
+        <span class="press-sub">Featured Video &middot; BottleRock 2026</span>
       </a>
     </div>
   </section>
